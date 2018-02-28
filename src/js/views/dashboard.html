@@ -1,0 +1,26 @@
+<div class="oj-hybrid-padding">
+    <h1>Medal table</h1>
+    <div>
+
+     
+        
+        <oj-table id="table" aria-label="MedaL Table"
+                                        display='grid'
+                                        data='[[dataSource]]' 
+                                        columns='{{columnArray}}'
+                                        style='width: 100%;'
+                                        columnsDefault="{headerStyle: 'font-weight:bold;'}">
+        </oj-table>
+
+       <script type="text/html" id="dept_name">
+                         
+                 <p style = 'vertical-align: middle;'>
+               <img data-bind="attr: {src: $context.row.imagePath}"  style='vertical-align: middle; width:22px; height: 15px;' />  
+               
+               <a  data-bind="text: $context.row.name" style='vertical-align: middle'></a>
+              </p>
+                         
+        </script>
+
+    </div>
+</div>

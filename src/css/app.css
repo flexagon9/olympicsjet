@@ -1,0 +1,20 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+ol-header-title {
+    
+font-size: large;    
+font-weight: normal;
+color: #4d4c4c;
+line-height: 0;
+padding: 20px;
+}
+
+ol-flex-bar-middle {
+    vertical-align: middle;
+}
