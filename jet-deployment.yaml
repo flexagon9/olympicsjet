@@ -1,0 +1,44 @@
+
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: olympics-jsfrontend
+  namespace: efedorenko
+  labels:
+    run: olympics-jsfrontend
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: olympics-jsfrontend
+    spec:
+      containers:
+      - image: ${{DOCKER_IMAGE}}:${{FD_PROJECT_VERSION}}
+        imagePullPolicy: Always
+        name: olympics-jsfrontend
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      imagePullSecrets:
+      - name: wrelease
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: olympics-jsfrontend-svc
+  namespace: efedorenko
+spec:
+  selector:
+    run: olympics-jsfrontend
+  ports:
+    - port: 8088
+      targetPort: 80
+  type: ClusterIP
