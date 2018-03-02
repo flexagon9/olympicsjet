@@ -5,6 +5,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                 var self = this;
 
                 self.data = ko.observableArray();
+                try {
                 $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
@@ -21,6 +22,24 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                                 });
                             });
                         });
+                } catch (err) {
+                    $.getJSON("/tcatapp/rest/medalrating").
+                        then(function (ranks) {
+                            $.each(ranks, function () {
+                                self.data.push({
+                                    countryId: this.countryId,
+                                    name: this.name,
+                                    rank: this.rank,
+                                    gold: this.gold,
+                                    silver: this.silver,
+                                    bronze: this.bronze,
+                                    total: this.total,
+                                    
+                                    imagePath: "css/images/"+this.countryId+".png"
+                                });
+                            });
+                        });
+                }
                 self.columnArray =  [
              
                {"headerText": "Rank", 
