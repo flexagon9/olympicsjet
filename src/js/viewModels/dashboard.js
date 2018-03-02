@@ -6,7 +6,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
 
                 self.data = ko.observableArray();
                 try {
-                $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
+                $.getJSON("/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
                                 self.data.push({
@@ -23,7 +23,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                             });
                         });
                 } catch (err) {
-                    $.getJSON("/tcatapp/rest/medalrating").
+                    $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
                                 self.data.push({
