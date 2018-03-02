@@ -5,7 +5,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                 var self = this;
 
                 self.data = ko.observableArray();
-                $.getJSON("https://129.213.12.60/efedorenko/javabackend/tcatapp/rest/medalrating").
+                $.getJSON("${{BACKEND_URL}}/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
                                 self.data.push({
