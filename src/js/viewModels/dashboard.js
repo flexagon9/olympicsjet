@@ -5,7 +5,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                 var self = this;
 
                 self.data = ko.observableArray();
-                try {
+                
                 $.getJSON("/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
@@ -21,9 +21,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                                     imagePath: "css/images/"+this.countryId+".png"
                                 });
                             });
-                        });
-                } catch (err) {
-                    $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
+                        })
+                    .error(function() { $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
                                 self.data.push({
@@ -38,8 +37,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                                     imagePath: "css/images/"+this.countryId+".png"
                                 });
                             });
-                        });
-                }
+                        }); })    
+                    ;
                 self.columnArray =  [
              
                {"headerText": "Rank", 
