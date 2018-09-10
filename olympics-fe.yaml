@@ -15,7 +15,7 @@ spec:
         run: olympics-fe
     spec:
       containers:
-      - image: eugeneflexagon/olympics-fe
+      - image: ${{DOCKER_IMAGE}}:${{FD_PROJECT_VERSION}}
         imagePullPolicy: Always
         name: olympics-fe
         ports:
