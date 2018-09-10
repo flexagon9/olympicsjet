@@ -1,0 +1,36 @@
+
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: olympics-fe
+  namespace: efedorenko
+  labels:
+    run: olympics-fe
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: olympics-fe
+    spec:
+      containers:
+      - image: eugeneflexagon/olympics-fe
+        imagePullPolicy: Always
+        name: olympics-fe
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: olympics-fe-svc
+  namespace: efedorenko
+spec:
+  selector:
+    run: olympics-fe
+  ports:
+    - port: 8088
+      targetPort: 80
+  type: NodePort
