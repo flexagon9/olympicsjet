@@ -3,16 +3,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: olympics-fe
+  name: olympics-fe-${{FD_PROJECT_VERSION}}
   namespace: efedorenko
   labels:
     run: olympics-fe
+    version: blue
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         run: olympics-fe
+        version: blue
     spec:
       containers:
       - image: ${{DOCKER_IMAGE}}:${{FD_PROJECT_VERSION}}
@@ -21,16 +23,3 @@ spec:
         ports:
         - containerPort: 80
           protocol: TCP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: olympics-fe-svc
-  namespace: efedorenko
-spec:
-  selector:
-    run: olympics-fe
-  ports:
-    - port: 8088
-      targetPort: 80
-  type: NodePort
