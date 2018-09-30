@@ -21,3 +21,8 @@ spec:
         backend:
           serviceName: olympics-fe-svc
           servicePort: 8088      
+      - path: /efedorenko/blue/olympics
+        backend:
+          serviceName: olympics-fe-svc-blue
+          servicePort: 8088      
+          
