@@ -32,7 +32,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
       // Application Name used in Branding Area
       self.appName = ko.observable("Olympic games 2018");
       // User Info used in Global Navigation area
-      self.userLogin = ko.observable("dan.goerdt@flexagon.com");
+      self.userLogin = ko.observable("eugene.fedorenko@flexagon.com");
 
       // Footer
       function footerLink(name, id, linkTarget) {
