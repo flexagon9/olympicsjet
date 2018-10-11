@@ -3,7 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: olympics-fe-${{FD_PROJECT_VERSION}}
+  name: olympics-fe
   namespace: efedorenko
   labels:
     run: olympics-fe
