@@ -15,11 +15,11 @@ spec:
       paths:
       - path: /efedorenko/javabackend
         backend:
-          serviceName: olympics-mw-svc
+          serviceName: olympics-dsh-mw-svc
           servicePort: 8088      
-      - path: /efedorenko/olympics
+      - path: /efedorenko/olympics-dsh
         backend:
-          serviceName: olympics-fe-svc
+          serviceName: olympics-dsh-fe-svc
           servicePort: 8088      
       - path: /efedorenko/blue/olympics
         backend:

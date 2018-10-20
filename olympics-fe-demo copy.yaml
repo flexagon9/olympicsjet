@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: olympics-dsh-fe-svc
+  namespace: efedorenko
+spec:
+  selector:
+    run: olympics-dsh-fe
+  ports:
+    - port: 8088
+      targetPort: 80
+  type: NodePort
