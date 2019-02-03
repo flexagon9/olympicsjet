@@ -4,7 +4,16 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
             function DashboardViewModel() {
                 var self = this;
 
-                self.data = ko.observableArray();
+                var hardArray = [
+                    {countryId: 'no', name: 'Norway', rank: 1, gold: 14, silver: 14, bronze: 11, total: 39, imagePath: "css/images/"+"no"+".png"},
+                    {countryId: 'de', name: 'Germany', rank: 2, gold: 14, silver: 10, bronze: 7, total: 31, imagePath: "css/images/"+"de"+".png"},
+                    {countryId: 'ca', name: 'Canada', rank: 3, gold: 11, silver: 8, bronze: 10, total: 29, imagePath: "css/images/"+"ca"+".png"},
+                    {countryId: 'us', name: 'USA', rank: 4, gold: 9, silver: 8, bronze: 6, total: 23, imagePath: "css/images/"+"us"+".png"},
+                    {countryId: 'nl', name: 'Netherlands', rank: 5, gold: 8, silver: 6, bronze: 6, total: 20, imagePath: "css/images/"+"nl"+".png"}];
+                    
+
+                self.data = ko.observableArray(hardArray);
+                /*
                 $.ajaxSetup({
       "error":function() { $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
                         then(function (ranks) {
@@ -42,6 +51,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
                                 });
                             });
                         }) ;
+                        */
                 self.columnArray =  [
              
                {"headerText": "Rank", 
