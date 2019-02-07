@@ -4,18 +4,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
             function DashboardViewModel() {
                 var self = this;
 
-                var hardArray = [
-                    {countryId: 'no', name: 'Norway', rank: 1, gold: 14, silver: 14, bronze: 11, total: 39, imagePath: "css/images/"+"no"+".png"},
-                    {countryId: 'de', name: 'Germany', rank: 2, gold: 14, silver: 10, bronze: 7, total: 31, imagePath: "css/images/"+"de"+".png"},
-                    {countryId: 'ca', name: 'Canada', rank: 3, gold: 11, silver: 8, bronze: 10, total: 29, imagePath: "css/images/"+"ca"+".png"},
-                    {countryId: 'us', name: 'USA', rank: 4, gold: 9, silver: 8, bronze: 6, total: 23, imagePath: "css/images/"+"us"+".png"},
-                    {countryId: 'nl', name: 'Netherlands', rank: 5, gold: 8, silver: 6, bronze: 6, total: 20, imagePath: "css/images/"+"nl"+".png"}];
+                self.data = ko.observableArray();
                     
-
-                self.data = ko.observableArray(hardArray);
-                /*
                 $.ajaxSetup({
-      "error":function() { $.getJSON("/efedorenko/javabackend/tcatapp/rest/medalrating").
+      "error":function() { $.getJSON("/javabackend/tcatapp/rest/medalrating").
                         then(function (ranks) {
                             $.each(ranks, function () {
                                 self.data.push({
@@ -35,23 +27,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodel', 'oj
           ;  }
 });
 
-               $.getJSON("/tcatapp/rest/medalrating").
-                        then(function (ranks) {
-                            $.each(ranks, function () {
-                                self.data.push({
-                                    countryId: this.countryId,
-                                    name: this.name,
-                                    rank: this.rank,
-                                    gold: this.gold,
-                                    silver: this.silver,
-                                    bronze: this.bronze,
-                                    total: this.total,
-                                    
-                                    imagePath: "css/images/"+this.countryId+".png"
-                                });
-                            });
-                        }) ;
-                        */
                 self.columnArray =  [
              
                {"headerText": "Rank", 
